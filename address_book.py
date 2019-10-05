@@ -33,7 +33,7 @@ class MyFrame(wx.Frame):
 
     def __set_properties(self):
         # begin wxGlade: MyFrame.__set_properties
-        self.SetTitle("frame")
+        self.SetTitle("Address Book")
         self.text_ctrl_ln.SetMinSize((200, 30))
         self.text_ctrl_fn.SetMinSize((200, 30))
         self.text_ctrl_address.SetMinSize((200, 30))
