@@ -5,6 +5,7 @@
 #
 
 import wx
+import sqlite3
 
 # begin wxGlade: dependencies
 # end wxGlade
