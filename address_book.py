@@ -25,8 +25,12 @@ class MyFrame(wx.Frame):
         self.text_ctrl_address = wx.TextCtrl(self, wx.ID_ANY, "")
         self.text_ctrl_phone_no = wx.TextCtrl(self, wx.ID_ANY, "")
         self.text_ctrl_email = wx.TextCtrl(self, wx.ID_ANY, "")
+
         self.button_submit = wx.Button(self, wx.ID_ANY, "Submit")
+        self.button_submit.Bind(wx.EVT_BUTTON, self.ButtonSubmit)
+
         self.button_get = wx.Button(self, wx.ID_ANY, "Get")
+        self.button_get.Bind(wx.EVT_BUTTON, self.ButtonGet)
 
         self.__set_properties()
         self.__do_layout()
@@ -79,6 +83,81 @@ class MyFrame(wx.Frame):
         self.SetSizer(sizer_1)
         self.Layout()
         # end wxGlade
+
+    def ButtonSubmit(self,event):
+        conn_sub = sqlite3.connect('address_book.db')
+        cursor_sub = conn_sub.cursor()
+
+        data=[]
+        data.append(self.text_ctrl_ln.GetValue())
+        data.append(self.text_ctrl_fn.GetValue())
+        data.append(self.text_ctrl_address.GetValue())
+        data.append(self.text_ctrl_phone_no.GetValue())
+        data.append(self.text_ctrl_email.GetValue())
+
+        cursor_sub.execute('insert into person values (?,?,?,?,?)', data)
+        conn_sub.commit()
+        conn_sub.close()
+       
+
+        self.text_ctrl_ln.Clear()
+        self.text_ctrl_fn.Clear()
+        self.text_ctrl_address.Clear()
+        self.text_ctrl_phone_no.Clear()
+        self.text_ctrl_email.Clear()
+
+        
+        
+
+        
+
+    def ButtonGet(self,event):
+        conn_get = sqlite3.connect('address_book.db')
+        cursor_get = conn_get.cursor()
+
+        
+
+        get_data=[]
+        get_data.append(self.text_ctrl_ln.GetValue())
+        if self.text_ctrl_ln.GetValue()!= "":
+            self.text_ctrl_ln.Clear()
+
+
+        get_data.append(self.text_ctrl_fn.GetValue())
+        if self.text_ctrl_fn.GetValue() != "":
+             self.text_ctrl_fn.Clear()
+
+        get_data.append(self.text_ctrl_address.GetValue())
+        if self.text_ctrl_address.GetValue() != "":
+             self.text_ctrl_address.Clear()
+
+        get_data.append(self.text_ctrl_phone_no.GetValue())
+        if self.text_ctrl_phone_no.GetValue() != "":
+             self.text_ctrl_phone_no.Clear()
+
+        get_data.append(self.text_ctrl_email.GetValue())
+        if self.text_ctrl_email.GetValue() != "":
+            self.text_ctrl_email.Clear()
+
+       
+
+        for gd in get_data:
+            if gd != "":
+              
+                for row in  cursor_get.execute('select lnane,fname,address,phone_no,email from  person '):
+                    self.text_ctrl_ln.AppendText(row[0])
+                    self.text_ctrl_fn.AppendText(row[1])
+                    self.text_ctrl_address.AppendText(row[2])
+                    self.text_ctrl_phone_no.AppendText(row[3])
+                    self.text_ctrl_email.AppendText(row[4])
+
+
+        
+        
+        conn_get.commit()
+        conn_get.close()
+
+        
 
 # end of class MyFrame
 
