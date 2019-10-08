@@ -22,21 +22,13 @@ class MyFrame(wx.Frame):
     
     cursor_init.execute("SELECT count(name) FROM sqlite_master WHERE type='table' AND name='person';")
         
-<<<<<<< HEAD
     if cursor_init.fetchone()[0] !=1 :
-=======
-    if cursor_init.fetchone()[0] !=1 :    
->>>>>>> 7b42a413beaed109d98f1869be99c680353c2233
         cursor_init.execute('''CREATE TABLE person (fname Varchar, 
                                                 lname Varchar,
                                                 address Varchar,
                                                 phone_no Varchar,
                                                 email lname Varchar
                                                 );''')
-<<<<<<< HEAD
-=======
-   
->>>>>>> 7b42a413beaed109d98f1869be99c680353c2233
 
     def __init__(self, *args, **kwds):
         # begin wxGlade: MyFrame.__init__
