@@ -15,6 +15,19 @@ import sqlite3
 
 
 class MyFrame(wx.Frame):
+    conn_init = sqlite3.connect('address_book.db')
+    cursor_init= conn_init.cursor()
+    
+    cursor_init.execute("SELECT count(name) FROM sqlite_master WHERE type='table' AND name='person';")
+        
+    if cursor_init.fetchone()[0] !=1 :
+        cursor_init.execute('''CREATE TABLE person (fname Varchar, 
+                                                lname Varchar,
+                                                address Varchar,
+                                                phone_no Varchar,
+                                                email lname Varchar
+                                                );''')
+
     def __init__(self, *args, **kwds):
         # begin wxGlade: MyFrame.__init__
         kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_FRAME_STYLE
@@ -144,7 +157,7 @@ class MyFrame(wx.Frame):
         for gd in get_data:
             if gd != "":
               
-                for row in  cursor_get.execute('select lnane,fname,address,phone_no,email from  person '):
+                for row in  cursor_get.execute('select lname,fname,address,phone_no,email from  person '):
                     self.text_ctrl_ln.AppendText(row[0])
                     self.text_ctrl_fn.AppendText(row[1])
                     self.text_ctrl_address.AppendText(row[2])
