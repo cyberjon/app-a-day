@@ -1,6 +1,6 @@
 from cx_Freeze import setup, Executable
 setup(
-    name = "Pandas For Peopel",
+    name = "Pandas For People",
     version = "1.0.0",
     options = {"build_exe": {
         'packages': ["wx","pandas"],
