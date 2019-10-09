@@ -49,6 +49,9 @@ class MyFrame(wx.Frame):
         self.button_get = wx.Button(self, wx.ID_ANY, "Get")
         self.button_get.Bind(wx.EVT_BUTTON, self.ButtonGet)
 
+        self.button_clear = wx.Button(self, wx.ID_ANY, "Clear")
+        self.button_clear.Bind(wx.EVT_BUTTON, self.ButtonClear)
+
         self.__set_properties()
         self.__do_layout()
 
@@ -69,7 +72,7 @@ class MyFrame(wx.Frame):
     def __do_layout(self):
         # begin wxGlade: MyFrame.__do_layout
         sizer_1 = wx.BoxSizer(wx.VERTICAL)
-        grid_sizer_1 = wx.GridSizer(6, 4, 3, 3)
+        grid_sizer_1 = wx.GridSizer(7, 4, 3, 3)
         label_ln = wx.StaticText(self, wx.ID_ANY, "Lastname:")
         grid_sizer_1.Add(label_ln, 0, 0, 0)
         grid_sizer_1.Add(self.text_ctrl_ln, 0, 0, 0)
@@ -99,10 +102,20 @@ class MyFrame(wx.Frame):
         grid_sizer_1.Add((0, 0), 0, 0, 0)
         grid_sizer_1.Add(self.button_submit, 0, 0, 0)
         grid_sizer_1.Add(self.button_get, 0, 0, 0)
+        grid_sizer_1.Add(self.button_clear, 0, 0, 0)
         sizer_1.Add(grid_sizer_1, 1, wx.EXPAND, 0)
         self.SetSizer(sizer_1)
         self.Layout()
         # end wxGlade
+
+
+    def clear_data(self):
+        self.text_ctrl_ln.Clear()
+        self.text_ctrl_fn.Clear()
+        self.text_ctrl_address.Clear()
+        self.text_ctrl_phone_no.Clear()
+        self.text_ctrl_email.Clear()
+        
 
     def ButtonSubmit(self,event):
         conn_sub = sqlite3.connect('address_book.db')
@@ -120,16 +133,14 @@ class MyFrame(wx.Frame):
         conn_sub.close()
        
 
-        self.text_ctrl_ln.Clear()
-        self.text_ctrl_fn.Clear()
-        self.text_ctrl_address.Clear()
-        self.text_ctrl_phone_no.Clear()
-        self.text_ctrl_email.Clear()
+        self.clear_data()
 
         
+    def ButtonClear(self,event):
+         self.clear_data()
         
-
-        
+            
+    
 
     def ButtonGet(self,event):
         conn_get = sqlite3.connect('address_book.db')
