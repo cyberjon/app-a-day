@@ -6,6 +6,7 @@
 
 import wx
 import pandas as pd
+import os
 
 
 # begin wxGlade: dependencies
@@ -86,10 +87,11 @@ class MyFrame(wx.Frame):
            print(self.agg)
 
     def ButtonExport(self,event):
-       file_name =self.text_ctrl_1.GetValue()
-       file_out=self.df.groupby(self.cols).agg(self.agg)
-       file_out.reset_index(inplace=True)
-       file_out.to_excel(file_name, index=False)
+        file_name = os.path.expanduser("~/Desktop/p4p.xlsx")
+        #file_name ='p4p.xlsx'
+        file_out=self.df.groupby(self.cols).agg(self.agg)
+        file_out.reset_index(inplace=True)
+        file_out.to_excel(file_name, index=False)
        
             
         
