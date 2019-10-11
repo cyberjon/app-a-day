@@ -1,11 +1,10 @@
 from cx_Freeze import setup, Executable
 setup(
-    name = "Address Book",
+    name = "Py Calculator",
     version = "1.0.0",
     options = {"build_exe": {
-        'packages': ["wx","sqlite3"],
-        'include_files': ['address_book.db'],
+        'packages': ["wx"],
         'include_msvcr': True,
     }},
-    executables = [Executable("address_book.py",base="Win32GUI")]
+    executables = [Executable("calculator.py",base="Win32GUI")]
     )
