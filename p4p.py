@@ -26,7 +26,7 @@ class MyFrame(wx.Frame):
 
         self.SetSize((472, 287))
         self.openFileDialog = wx.FileDialog(self, "Open", "", "", "", wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
-        self.text_ctrl_1 = wx.TextCtrl(self, wx.ID_ANY, "")
+       
         self.combo_box_1 = wx.ComboBox(self, wx.ID_ANY, choices=["Coloums"], style=wx.CB_DROPDOWN)
 
         self.button_2 = wx.Button(self, wx.ID_ANY, "Import")
@@ -48,14 +48,14 @@ class MyFrame(wx.Frame):
         # begin wxGlade: MyFrame.__set_properties
         self.SetTitle("GroupBy")
         
-        self.text_ctrl_1.SetMinSize((500, 29))
+        #self.text_ctrl_1.SetMinSize((500, 29))
         # end wxGlade
 
     def __do_layout(self):
         # begin wxGlade: MyFrame.__do_layout
         sizer_1 = wx.BoxSizer(wx.VERTICAL)
         grid_sizer_1 = wx.GridSizer(0, 3, 0, 0)
-        sizer_1.Add(self.text_ctrl_1  , 0, 0, 0)
+        #sizer_1.Add(self.text_ctrl_1  , 0, 0, 0)
         grid_sizer_1.Add(self.combo_box_1, 0, 0, 0)
         grid_sizer_1.Add(self.button_2, 0, wx.ALIGN_CENTER, 0)
         grid_sizer_1.Add(self.combo_box_2, 0, wx.ALIGN_RIGHT, 0)
@@ -73,7 +73,7 @@ class MyFrame(wx.Frame):
     def ButtonImport(self,event):
         self.openFileDialog.ShowModal()
         self.df = pd.read_excel(self.openFileDialog.GetPath())
-        self.text_ctrl_1.AppendText(self.openFileDialog.GetPath())
+        self.openFileDialog.GetPath()
         self.combo_box_1.Append(self.df.columns)
 
     def ButtonGetCols(self,event):
@@ -89,7 +89,7 @@ class MyFrame(wx.Frame):
        file_name =self.text_ctrl_1.GetValue()
        file_out=self.df.groupby(self.cols).agg(self.agg)
        file_out.reset_index(inplace=True)
-       file_out.to_excel(file_name, index=False)
+       file_out.to_excel("p4p.xlsx", index=False)
        
             
         
