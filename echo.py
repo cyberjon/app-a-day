@@ -26,7 +26,7 @@ class EchoBot(Client):
         ]
 
 
-        log.info(f'{message_object.text}')
+        #log.info(f'{message_object.text}')
  
         # If you're not the author, echo
         if author_id != self.uid : 
@@ -37,8 +37,10 @@ class EchoBot(Client):
                 msg = Message(new_msg)
                 self.send( msg , thread_id=thread_id, thread_type=thread_type)
 
+username = input("Facebook user ID or e-mail:")
+password = input("Enter in you Facebook Password:")
 
-client = EchoBot("<e-mail>", "<password>")
+client = EchoBot(usename , password)
 client.listen()
 
 
