@@ -12,7 +12,7 @@ class EchoBot(Client):
         
 
 
-        log.info(f'{message_object.text}')
+        #log.info(f'{message_object.text}')
  
         # If you're not the author, echo
         if  author_id != self.uid  and message_object.text.lower() !='yes' and  message_object.text.lower() !='no': 
