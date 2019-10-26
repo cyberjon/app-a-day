@@ -3,47 +3,79 @@
 <head>
 <meta charset="utf-8" />
 <title></title>
+<script></script>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+
+}
+.button{
+	width:50px;
+	height:50px;
+	font-size:25px;
+	margin: 2;
+	cursor: pointer;
+}
+
+.textview{
+	width:247px;
+	margin: 5px;
+	font-size:25px;
+	padding: 5;
+	
+
+}
+
+
+</style>
 </head>
 <body>
 
 <table>
-<div align="center" class="busttons" style="text-align: center; " name="buttons" id="buttons">
-
-</tr>
-	<td><input type="button" name="button_clear" value=" C"></td>
-	<td><input type="button" name="button_pc" value=" %"></td>
-	<td><input type="button" name="button_sqrt" value="sqrt"></td>
-	<td><input type="button" name="button_div" value=" /"></td>
-</tr>
-<input type="text" name="input_fild">
-</tr>
-	<td><input type="button" name="button_9" value=" 9"></td>
-	<td><input type="button" name="button_8" value=" 8"></td>
-	<td><input type="button" name="button_7" value=" 7"></td>
-	<td><input type="button" name="button_mul" value=" *"></td>
-</tr>
-<tr>
-	<td><input type="button" name="button_6" value=" 6"></td>
-	<td><input type="button" name="button_5" value=" 5"></td>
-	<td><input type="button" name="button_4" value=" 4"></td>
-	<td><input type="button" name="button_sub" value=" -"></td>
-</tr>
-<tr>
+<div class="main">
+	<form name='form'>
+	<input class="textview">
+	</form>
 	
-	<td><input type="button" name="button_3" value=" 3"></td>
-	<td><input type="button" name="button_2" value=" 2"></td>
-	<td><input type="button" name="button_1" value=" 1"></td>
-	<td><input type="button" name="button_aad" value=" +"></td>
-</tr>
+<table>
 
-<tr>
+	</tr>
+		<td><input class="button" name="button_clear" value=" C"></td>
+		<td><input class="button" name="button_pc" value=" %"></td>
+		<td><input class="button" name="button_sqrt" value="sqrt"></td>
+		<td><input class="button" name="button_div" value=" /"></td>
+	</tr>
 	
-	<td><input type="button" name="button_1" value="."></td>
-	<td><input type="button" name="button_0" value="0"></td>
-   <td><input type="button" name="button_pm" value="+/-"></td>
-    <td><input type="button" name="button_eq" value="="></td>
-</tr>
-</table>
+	</tr>
+		<td><input class="button" name="button_9" value=" 9"></td>
+		<td><input class="button" name="button_8" value=" 8"></td>
+		<td><input class="button" name="button_7" value=" 7"></td>
+		<td><input class="button" name="button_mul" value=" *"></td>
+	</tr>
+	<tr>
+		<td><input class="button" name="button_6" value=" 6"></td>
+		<td><input class="button" name="button_5" value=" 5"></td>
+		<td><input class="button" name="button_4" value=" 4"></td>
+		<td><input class="button" name="button_sub" value=" -"></td>
+	</tr>
+	<tr>
+		
+		<td><input class="button" name="button_3" value=" 3"></td>
+		<td><input class="button" name="button_2" value=" 2"></td>
+		<td><input class="button" name="button_1" value=" 1"></td>
+		<td><input class="button" name="button_aad" value=" +"></td>
+	</tr>
+	
+	<tr>
+		
+		<td><input class="button" name="button_1" value="."></td>
+		<td><input class="button" name="button_0" value="0"></td>
+	   <td><input class="button" name="button_pm" value="+/-"></td>
+	    <td><input class="button" name="button_eq" value="="></td>
+	</tr>
+	</table>
 
 
 </div>
