@@ -10,10 +10,14 @@ password = input("Enter in you Facebook Password:")
 client = Client(username, password)
 users = list(client.fetchThreadList())
 
-for i in range(0,len(users)):
-    if users[i].name =='Lorcan Mac Hugh':
+u=client.searchForUsers('lptcdojo')
+
+print(u)
+
+#for i in range(0,len(users)):
+   # if users[i].name =='Lorcan Mac Hugh':
         
-        client.send(Message(text='This a test from my Facbook Bot'), thread_id=users[i].uid, thread_type=ThreadType.USER)
+       # client.send(Message(text='This a test from my Facbook Bot'), thread_id=users[i].uid, thread_type=ThreadType.USER)
     
 
 client.logout()

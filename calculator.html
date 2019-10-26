@@ -3,7 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <title></title>
-<script></script>
+<script>
+
+	function insert(num) {
+	
+	document.form.textview.value = document.form.textview.value + num
+		
+	
+}
+
+</script>
 
 <style>
 *{
@@ -14,13 +23,14 @@
 .button{
 	width:50px;
 	height:50px;
-	font-size:25px;
+	text-align: center;
+	font-size:15px;
 	margin: 2;
 	cursor: pointer;
 }
 
 .textview{
-	width:247px;
+	width:193px;
 	margin: 5px;
 	font-size:25px;
 	padding: 5;
@@ -36,44 +46,44 @@
 <table>
 <div class="main">
 	<form name='form'>
-	<input class="textview">
+	<input class="textview" name="textview">
 	</form>
 	
 <table>
 
 	</tr>
-		<td><input class="button" name="button_clear" value=" C"></td>
-		<td><input class="button" name="button_pc" value=" %"></td>
-		<td><input class="button" name="button_sqrt" value="sqrt"></td>
-		<td><input class="button" name="button_div" value=" /"></td>
+		<td><input type ="button"class="button" name="button_clear" value="C"></td>
+		<td><input type ="button" class="button" name="button_pc" value="%"></td>
+		<td><input type ="button" class="button" name="button_sqrt" value="sqrt"></td>
+		<td><input type ="button" class="button" name="button_div" value="/" ></td>
 	</tr>
 	
 	</tr>
-		<td><input class="button" name="button_9" value=" 9"></td>
-		<td><input class="button" name="button_8" value=" 8"></td>
-		<td><input class="button" name="button_7" value=" 7"></td>
-		<td><input class="button" name="button_mul" value=" *"></td>
+		<td><input type ="button" class="button" name="button_9" value=" 9"onclick="insert(9)"></td>
+		<td><input type ="button" class="button" name="button_8" value=" 8"onclick="insert(8)"></td>
+		<td><input type ="button" class="button" name="button_7" value=" 7"onclick="insert(7)"></td>
+		<td><input type ="button" class="button" name="button_mul" value=" *" ></td>
 	</tr>
 	<tr>
-		<td><input class="button" name="button_6" value=" 6"></td>
-		<td><input class="button" name="button_5" value=" 5"></td>
-		<td><input class="button" name="button_4" value=" 4"></td>
-		<td><input class="button" name="button_sub" value=" -"></td>
+		<td><input type ="button" class="button" name="button_6" value=" 6" onclick="insert(6)"></td>
+		<td><input type ="button" class="button" name="button_5" value=" 5" onclick="insert(5)"></td>
+		<td><input type ="button" class="button" name="button_4" value=" 4"onclick="insert(4)"></td>
+		<td><input type ="button" class="button" name="button_sub" value=" -"></td>
 	</tr>
 	<tr>
 		
-		<td><input class="button" name="button_3" value=" 3"></td>
-		<td><input class="button" name="button_2" value=" 2"></td>
-		<td><input class="button" name="button_1" value=" 1"></td>
-		<td><input class="button" name="button_aad" value=" +"></td>
+		<td><input type ="button"class="button" name="button_3" value="3" onclick="insert(3)"></td>
+		<td><input type ="button" class="button" name="button_2" value="2" onclick="insert(2)"></td>
+		<td><input type ="button" class="button" name="button_1" value="1" onclick="insert(1)"></td>
+		<td><input type ="button" class="button" name="button_add" value="+" onclick="insert(+)"></td>
 	</tr>
 	
 	<tr>
 		
-		<td><input class="button" name="button_1" value="."></td>
-		<td><input class="button" name="button_0" value="0"></td>
-	   <td><input class="button" name="button_pm" value="+/-"></td>
-	    <td><input class="button" name="button_eq" value="="></td>
+		<td><input type ="button" class="button" name="button_1" value="." onclick="insert(.)"></td>
+		<td><input type ="button" class="button" name="button_0" value="0" onclick="insert(0)"></td>
+	   <td><input type ="button" class="button" name="button_pm" value="+/-" ></td>
+	    <td><input type ="button"  class="button" name="button_eq" value="=" ></td>
 	</tr>
 	</table>
 
