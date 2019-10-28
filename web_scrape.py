@@ -2,11 +2,11 @@ import sys
 import requests
 import bs4
 import csv
-import pandas
 
 
 
-url ='https://www.oireachtas.ie/en/members/tds/?term=%2Fie%2Foireachtas%2Fhouse%2Fdail%2F32'
+
+url ='http://kildare.ie/countycouncil/Contact/'
 
 #res = requests.get('https://en.wikipedia.org/wiki/'+''.join(sys.argv[1:]))
 res = requests.get(url)
@@ -14,10 +14,16 @@ res.raise_for_status()
 
 soup =bs4.BeautifulSoup(res.text, "html.parser")
 
-for i in soup.find_all("div", class_="c-member-list-item"):
-   
+#table = soup.find_all('table',class_='contacts')[1]
+rows = soup.findAll("tr")
 
-  print(i.getText())
+with open("test.csv", "wt+", newline="") as f:
+    writer = csv.writer(f)
+    for row in rows:
+        csv_row = []
+        for cell in row.findAll(["td"]):
+            csv_row.append(cell.get_text())
+        writer.writerow(csv_row)
    
    
 
