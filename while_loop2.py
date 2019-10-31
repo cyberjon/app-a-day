@@ -1,6 +1,6 @@
-count =0
+count =1
 x=0
-while count <=1:
+while count <=2:
     num = int(input("enternumber"))
     x = x + num 
     count = count +1
