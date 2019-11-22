@@ -2,8 +2,8 @@ from selenium import webdriver
 import sys
 driver = webdriver.Chrome()
 
-driver.get(sys.argv[-1])
-#driver.get('https://www.instagram.com/p/B2ztH74BCKq/')
+#driver.get(sys.argv[-1])
+driver.get('https://www.instagram.com/p/B2ztH74BCKq/')
 
 elems = driver.find_elements_by_xpath("//a[@class='FPmhX notranslate TlrDj']")
 
