@@ -1,0 +1,30 @@
+#:kivy 1.8.0
+<TicTacToeGrid>:
+    cols: 3
+
+<GridEntry>:
+    font_size: self.height
+
+<Interface>:
+    orienation:'vertical'
+
+    AnchorLayout:
+        TicTacToeGrid:
+            id:board
+            size: min(self.parent.size), min(self.parent.size)
+            size_hint:None,None
+        
+    Label:
+        size_hint_y: None
+        height: sp(40)
+        text: 
+            '{} to play'.format(
+            {1: 'O', -1: 'X'}[board.current_player])
+
+    Button:
+        size_hint_y: None
+        height: sp(40)
+        text: 'reset'
+        on_press: board.reset()
+
+

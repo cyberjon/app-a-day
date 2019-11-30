@@ -1,17 +1,11 @@
-import kivy
-#kivy.require('1.0.6') # replace with your current kivy version !
-
 from kivy.app import App
-from kivy.uix.button import Button
+#kivy.require("1.8.0")
+from kivy.uix.label import Label
 
 
-class MyApp(App):
-
+class SimpleKivyApp(App):
     def build(self):
-        return Button(text='Hello world',
-                        background_color =(0,0,0,1),
-                        font_size=150)
+        return Label()
 
-
-if __name__ == '__main__':
-    MyApp().run()
+if __name__ == "__main__":
+    SimpleKivyApp().run()
